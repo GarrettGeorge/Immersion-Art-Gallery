@@ -1,0 +1,10 @@
+<% if is_logged_in? %>
+<%= render :partial => "shared/logoutheader" %>
+<% else %>
+  <%= render :partial => "shared/headerbar" %>
+<% end %>
+<%- title "Exhibits" %>
+<div id="exhibits__title">Exhibits</div>
+<div id="exhibits__container" class="list-template-container">
+  <%= render :partial => "shared/listtemplate" %>
+</div>

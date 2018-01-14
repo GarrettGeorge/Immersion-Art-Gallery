@@ -1,0 +1,48 @@
+<%= javascript_pack_tag 'gallery/core' %>
+<%- title "Gallery" %>
+<% if is_logged_in? %>
+<%= render :partial => "shared/logoutheader" %>
+<% else %>
+  <%= render :partial => "shared/headerbar" %>
+<% end %>
+
+<div id="gallerypage__collectionContainer">
+    <div id="collection__to-grid"></div>
+    <div id="collection__to-single">
+
+    </div>
+  <div id="collection__container">
+    <div id="collection__panel-grid">
+      <div id="collection__title">Gallery</div>
+      <div id="collection__images">
+        <div class="image-col" id="image-col-0">
+
+        </div>
+        <div class="image-col" id="image-col-1">
+
+        </div>
+        <div class="image-col" id="image-col-2">
+
+        </div>
+        <div class="image-col" id="image-col-3">
+
+        </div>
+      </div>
+    </div>
+    <div id="collection__panel-single">
+      <div id="gotoGrid">Back to List</div>
+      <div id="left-image"></div>
+      <div id="central-image-container">
+        <img id="central-image"></img>
+        <div id="info-frame">
+          <div id="frame-title"></div>
+          <div id="artist"></div>
+          <div id="date"></div>
+          <div id="style"></div>
+          <div id="medium"></div>
+        </div>
+      </div>
+      <div id="right-image"></div>
+    </div>
+  </div>
+</div>

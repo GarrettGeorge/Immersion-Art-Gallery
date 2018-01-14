@@ -1,0 +1,488 @@
+// Place all the styles related to the Admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.overlay {
+  z-index: 3;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(255, 255, 255, 0.8);
+  display: none;
+
+  .modal {
+    height: 80%;
+    width: 60%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    -webkit-box-shadow: 0px 10px 28px 0px rgba(0,0,0,0.56);
+    -moz-box-shadow: 0px 10px 28px 0px rgba(0,0,0,0.56);
+    box-shadow: 0px 10px 28px 0px rgba(0,0,0,0.56);
+
+    form {
+      position: absolute;
+      top: 50%;
+      left: calc(50% - 0px);
+      transform: translate(-50%, -50%);
+      width: 50%;
+
+      label {
+        width: 100px;
+        display: inline-block;
+        font-size: 16pt;
+        font-family: 'Avenir Next', sans-serif;
+        color: rgb(89, 89, 104);
+        vertical-align: bottom;
+      }
+
+      select, input:not(:last-child) {
+        display: inline-block;
+        height: 30px;
+        margin-top: 20px;
+        border: none;
+        border-bottom: 1px solid rgb(89, 89, 104);
+        width: calc(100% - 110px);
+        outline: none;
+        font-family: 'Avenir Next', sans-serif;
+        font-size: 14pt;
+      }
+
+      input:last-child {
+        margin-top: 25px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        border: none;
+        border-radius: 0;
+        background: rgb(13, 130, 160);
+        color: white;
+        font-size: larger;
+        padding: 10px 15px;
+      }
+    }
+  }
+}
+
+#overlay-employee {
+  input:not(:last-child) {
+    margin-top: 40px;
+    width: calc(100% - 160px);
+  }
+
+  label {
+    width: 150px;
+  }
+}
+
+#overlay-exhibit {
+  .modal {
+    width: 50%;
+    transition: all 0.4s ease;
+    overflow-y: auto;
+  }
+
+  form {
+    width: 75%;
+    top: 15%;
+    transform: translateX(-50%);
+  }
+
+  textarea, input:not(:last-child) {
+    width: calc(100% - 130px);
+  }
+
+  textarea {
+    resize: none;
+    font-size: 12pt;
+    height: 175px;
+    margin-top: 25px;
+    color: rgb(89, 89, 104);
+    font-family: 'Avenir Next', sans-serif;
+  }
+
+  label {
+    width: 120px;
+  }
+
+  #exhibit-add-art {
+    width: 100%;
+    color: #0d82a0;
+    font-family: Avenir Next, sans-serif;
+    font-size: 16pt;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 500;
+    cursor: default;
+  }
+
+  #modal-gallery {
+    display: none;
+    width: 80%;
+    height: 90%;
+    top: 50%;
+    left: 50%;
+    position: relative;
+    transform: translate(-50%, -50%);
+
+    .table-row-checkmark {
+      height: 35px;
+      width: 35px;
+      position: absolute;
+      left: 0%;
+      top: 50%;
+      transform: translateY(-50%);
+      background-image: url("icons8-checked-80.png");
+      background-size: 35px 35px;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: none;
+      transition: left 0.3s ease;
+    }
+
+    .table-row {
+      position: relative;
+      width: 100%;
+      border-bottom: 1px solid rgb(89, 89, 104);
+      padding: 25px 0px;
+      background-position: center;
+      background-size: 0px 0px;
+      transition: all 0.4s ease;
+      cursor: default;
+
+      &:hover {
+        background-size: 100% 100%;
+        background-color: #DDD;
+        padding-left: 15px;
+      }
+
+      .table-row-col {
+        width: 33%;
+        height: 100%;
+        box-sizing: border-box;
+        display: inline-block;
+
+        div:not(.button) {
+          display: block;
+          font-family: 'Avenir Next', sans-serif;
+          color: rgb(89, 89, 104);
+        }
+      }
+
+      .table-row-col:first-child div:first-child {
+        font-size: 16pt;
+      }
+      .table-row-col:first-child div:not(:first-child) {
+        padding-left: 20px;
+      }
+    }
+
+    #backToExhibit {
+      position: absolute;
+      left: 5%;
+      top: 3%;
+      background-image: url("icons8-left-50.png");
+      background-size: 30px 30px;
+      height: 30px;
+      width: 30px;
+    }
+
+    form {
+      column-count: 3;
+      top: 0px;
+      position: relative;
+
+      label {
+        margin-left: 0px;
+        display: inline;
+      }
+
+      input:not(:last-child) {
+        width: calc(100% - 130px);
+      }
+      input:last-child {
+        width: 100%;
+      }
+    }
+  }
+}
+
+#adminpage__initContainer {
+  position: relative;
+  height: calc(100% - 100px);
+  width: 100%;
+
+  #adminpage__gotoArtwork, #adminpage__gotoEmployees,
+  #adminpage__gotoNonEmployees, #adminpage__gotoExhibits {
+    width: 45%;
+    height: 50%;
+    left: 5%;
+    position: absolute;
+    top: 0%;
+    display: inline-block;
+    box-sizing: border-box;
+    z-index: 2;
+
+    .icon {
+      height: 50px;
+      width: 50px;
+      position: relative;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 50px 50px;
+      transition: all 0.4s ease;
+    }
+
+    &:hover {
+      .title {
+        font-size: 24pt;
+      }
+      .icon {
+        height: 65px;
+        width: 65px;
+        background-size: 65px 65px;
+      }
+    }
+  }
+
+  #adminpage__gotoArtwork {
+    .icon {
+      background-image: url("icons8-paint-palette-filled-80.png")
+    }
+  }
+
+  #adminpage__gotoEmployees {
+    .icon {
+      background-image: url("icons8-name-tag-filled-80.png");
+    }
+  }
+
+  #adminpage__gotoNonEmployees {
+    .icon {
+      background-image: url("icons8-account-filled-80.png");
+    }
+  }
+
+  #adminpage__gotoExhibits {
+    .icon {
+      background-image: url("icons8-gallery-80.png")
+    }
+  }
+
+  .icon-group {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: default;
+  }
+
+  .title {
+    color: rgb(89, 89, 104);
+    font-family: 'Avenir Next', sans-serif;
+    font-size: 20pt;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: font-size 0.4s ease;
+  }
+
+  #adminpage__gotoArtwork::after, #adminpage__gotoNonEmployees::after {
+    content: '';
+    position: absolute;
+    height: 90%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgb(89, 89, 104);
+    right: 0px;
+    width: 1px;
+  }
+
+  #adminpage__gotoEmployees, #adminpage__gotoExhibits {
+    left: 50%;
+  }
+
+  #adminpage__gotoNonEmployees, #adminpage__gotoExhibits {
+    top: 50%;
+    border-top: 1px solid rgb(89, 89, 104);
+  }
+
+  #adminpage__artwork, #adminpage__employees, #adminpage__nonemployees,
+  #adminpage__exhibits {
+    z-index: 1;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: none;
+    width: 75%;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .table-title {
+      font-size: 25pt;
+      font-family: 'Avenir Next', sans-serif;
+      color: rgb(89, 89, 104);
+      width: 100%;
+      text-align: center;
+      position: relative;
+
+      .back-to-admin {
+        position: absolute;
+        left: 0%;
+        height: 40px;
+        width: 40px;
+        background-image: url(icons8-left-50.png);
+        background-size: 40px 40px;
+        background-position: left;
+        background-repeat: no-repeat;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        left: 0px;
+        bottom: -3px;
+        background: rgb(89, 89, 104);
+      }
+    }
+
+    .table {
+      .table-row {
+        position: relative;
+        width: 100%;
+        border-bottom: 1px solid rgb(89, 89, 104);
+        padding: 25px 0px;
+
+        .table-row-col {
+          width: 33%;
+          height: 100%;
+          box-sizing: border-box;
+          display: inline-block;
+
+          div:not(.button) {
+            display: block;
+            font-family: 'Avenir Next', sans-serif;
+            color: rgb(89, 89, 104);
+          }
+        }
+
+        .table-row-col:first-child div:first-child {
+          font-size: 16pt;
+        }
+        .table-row-col:first-child div:not(:first-child) {
+          padding-left: 20px;
+        }
+
+        .table-row-buttons {
+          position: absolute;
+          left: -5%;
+          top: 50%;
+          transform: translateY(-50%);
+
+          div {
+            width: 50px;
+            height: 50px;
+            background-size: 25px 25px;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 26px;
+            //display: inline-block;
+
+            &:hover {
+              background-color: #CCC;
+              transition: all 0.4s ease;
+            }
+          }
+
+          div:last-child {
+            background-image: url("icons8-delete-80.png");
+          }
+          div:first-child {
+            background-image: url("icons8-edit-80.png");
+          }
+        }
+      }
+    }
+  }
+
+  #add-art, #add-emp, #add-non-emp, #add-exhibit {
+    position: fixed;
+    top: 5%;
+    right: -5%;
+    height: 50px;
+    width: 50px;
+    background: rgb(13, 130, 160);
+    border-radius: 28px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 25pt;
+    color: white;
+    cursor: default;
+  }
+
+  #search-art, #search-employee, #search-non-employee, #search-exhibits {
+    background: url(icons8-search-80.png);
+    background-size: 30px 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #595968;
+    border-radius: 27px;
+    position: absolute;
+    top: calc(5% + 60px);
+    right: -5%;
+    height: 50px;
+    width: 50px;
+  }
+
+  #adminpage__artwork, #adminpage__employees, #adminpage__nonemployees, #adminpage__exhibits {
+    form {
+      display: none;
+      column-count: 2;
+      width: 40%;
+      margin-top: 20px;
+      font-family: 'Avenir Next', sans-serif;
+
+      label {
+        width: 80px;
+        display: inline-block;
+      }
+
+      input {
+        margin-top: 15px;
+      }
+
+      select, input:not(:last-child) {
+        width: calc(100% - 100px);
+        display: inline-block;
+      }
+
+      input:last-child {
+        height: 30px;
+        width: 100px;
+        font-size: 13pt;
+        font-family: 'Avenir Next', sans-serif;
+        background-color: rgb(13, 130, 160);
+        border-radius: 0px;
+        border: none;
+        color: white;
+      }
+    }
+  }
+
+  #adminpage__nonemployees, #adminpage__exhibits {
+    form {
+      column-count: 1;
+    }
+  }
+}

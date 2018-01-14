@@ -1,0 +1,64 @@
+<%- title "Search" %>
+<% if is_logged_in? %>
+<%= render :partial => "shared/logoutheader" %>
+<% else %>
+  <%= render :partial => "shared/headerbar" %>
+<% end %>
+<div id="searchpage__collectionContainer">
+    <div id="collection__to-grid"></div>
+    <div id="collection__to-single">
+
+    </div>
+  <div id="collection__container">
+    <div id="collection__panel-grid">
+      <div id="collection__title">Search</div>
+      <%= form_tag :action => :do_nothing do %>
+
+      <%= label_tag :artwork_title, "Title:" %>
+      <%= text_field_tag :artwork_title %><br>
+      <%= label_tag :artist, "Artist:" %>
+      <%= text_field_tag :artist %><br>
+      <%= label_tag :date, "Date:" %>
+      <%= text_field_tag :date %><br>
+      <%= label_tag :artwork_style, "Style:" %>
+      <%= text_field_tag :artwork_style %><br>
+      <%= label_tag :medium, "Medium:" %>
+      <%= text_field_tag :medium %><br>
+      <%= label_tag :uuid, "UUID:" %>
+      <%= text_field_tag :uuid %><br>
+
+      <%= submit_tag 'Search'%>
+      <% end %>
+
+      <div id="collection__images">
+        <div class="image-col" id="image-col-0">
+
+        </div>
+        <div class="image-col" id="image-col-1">
+
+        </div>
+        <div class="image-col" id="image-col-2">
+
+        </div>
+        <div class="image-col" id="image-col-3">
+
+        </div>
+      </div>
+    </div>
+    <div id="collection__panel-single">
+      <div id="gotoGrid">Back to List</div>
+      <div id="left-image"></div>
+      <div id="central-image-container">
+        <img id="central-image"></img>
+        <div id="info-frame">
+          <div id="frame-title"></div>
+          <div id="artist"></div>
+          <div id="date"></div>
+          <div id="style"></div>
+          <div id="medium"></div>
+        </div>
+      </div>
+      <div id="right-image"></div>
+    </div>
+  </div>
+</div>

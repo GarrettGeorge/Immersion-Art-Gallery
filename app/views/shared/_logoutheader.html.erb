@@ -1,0 +1,23 @@
+<% content_for :head do %>
+     <link rel="stylesheet" href="/assets/headerbar.css.scss">
+<% end %>
+
+<div id="gray-nav-bar">
+  <a id="logo" href="/immersion">
+  </a>
+  <div id="title">Immerison Art Gallery</div>
+  <div id="nav-buttons">
+    <a class="gallery__nav-links" id="gallery" href="/immersion/gallery">Gallery</a>
+    <a class="gallery__nav-links" id="exhibits" href="/immersion/exhibits">Exhibits</a>
+    <!-- <a class="gallery__nav-links" id="artists" href="/immersion/artists">Artists</a> -->
+    <!-- <a class="gallery__nav-links" id="styles" href="/immersion/styles">Styles</a> -->
+    <a class="gallery__nav-links" id="admin" href="/immersion/admin">Admin</a>
+    <a class="gallery__nav-links" id="logout" style="cursor: pointer;">Logout</a>
+    <a href="/immersion/search">
+      <svg id ="gray-searchicon" height="30" width="30">
+        <circle cx="10" cy="10" r="9" stroke="rgb(89,89,104)" stroke-width="1" fill="none"/>
+        <line x1="17" y1="17" x2="26" y2="26" stroke="rgb(89,89,104)" stroke-width="1"/>
+      </svg>
+    </a>
+  </div>
+</div>

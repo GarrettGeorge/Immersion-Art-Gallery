@@ -1,0 +1,246 @@
+<%- title "Admin" %>
+<% if is_logged_in? %>
+<%= render :partial => "shared/logoutheader" %>
+<% else %>
+  <%= render :partial => "shared/headerbar" %>
+<% end %><%= javascript_pack_tag 'admin' %>
+
+<div class="overlay" id="overlay-art">
+  <div class="modal">
+    <%= form_tag :action => :do_nothing do %>
+
+    <%= label_tag :artwork_title, "Title:" %>
+    <%= text_field_tag :artwork_title %><br>
+    <%= label_tag :artist, "Artist:" %>
+    <%= text_field_tag :artist %><br>
+    <%= label_tag :date, "Date:" %>
+    <%= text_field_tag :date %><br>
+    <%= label_tag :artwork_style, "Style:" %>
+    <%= text_field_tag :artwork_style %><br>
+    <%= label_tag :medium, "Medium:" %>
+    <%= text_field_tag :medium %><br>
+    <%= label_tag :uuid, "UUID:" %>
+    <%= text_field_tag :uuid %><br>
+
+    <%= submit_tag 'Add To Collection', disabled: false%>
+    <% end %>
+  </div>
+</div>
+
+<div class="overlay" id="overlay-employee">
+  <div class="modal">
+    <%= form_tag :action => :do_nothing do %>
+
+    <%= label_tag :emp_name, "Name:" %>
+    <%= text_field_tag :emp_name %><br>
+    <%= label_tag :position, "Position:" %>
+    <%= text_field_tag :position %><br>
+    <%= label_tag :salary, "Salary:" %>
+    <%= text_field_tag :salary %><br>
+    <%= label_tag :birth_date, "Birth Date:" %>
+    <%= text_field_tag :birth_date %><br>
+    <%= label_tag :ssn, "SSN:" %>
+    <%= password_field_tag :ssn %><br>
+    <%= label_tag :username, "Username:" %>
+    <%= text_field_tag :username %><br>
+    <%= label_tag :password1, "Password:" %>
+    <%= password_field_tag :password1 %><br>
+    <%= label_tag :password2, "Re-enter Password:" %>
+    <%= password_field_tag :password2 %><br>
+
+    <%= submit_tag 'Add Employee'%>
+    <% end %>
+  </div>
+</div>
+
+<div class="overlay" id="overlay-non-employee">
+  <div class="modal">
+    <%= form_tag :action => :do_nothing do %>
+
+    <%= label_tag :non_emp_name, "Name:" %>
+    <%= text_field_tag :non_emp_name %><br>
+    <%= label_tag :type, "Type:" %>
+    <%= select_tag(:type, options_for_select(["Member", "Donor", "Volunteer"])) %>
+    <%= label_tag :join_date, "Join Date:" %>
+    <%= text_field_tag :join_date %><br>
+    <%= label_tag :donor_amount, "Donor Amount:" %>
+    <%= text_field_tag :donor_amount %><br>
+
+    <%= submit_tag 'Add Person'%>
+    <% end %>
+  </div>
+</div>
+
+<div class="overlay" id="overlay-exhibit">
+  <div class="modal">
+    <%= form_tag :action => :do_nothing do %>
+
+    <%= label_tag :exhibit_title, "Title:" %>
+    <%= text_field_tag :exhibit_title %><br>
+    <%= label_tag :start_date, "Start Date:" %>
+    <%= text_field_tag :start_date %><br>
+    <%= label_tag :end_date, "End Date:" %>
+    <%= text_field_tag :end_date %><br>
+    <%= label_tag :main_image, "Main Image:" %>
+    <%= text_field_tag :main_image %><br>
+    <%= label_tag :description, "Description:" %>
+    <%= text_area_tag :description %><br>
+    <div id="exhibit-add-art">+ Add Artwork</div>
+
+    <%= submit_tag 'Create Exhibit', disabled: false%>
+    <% end %>
+    <div id="modal-gallery">
+      <div id="backToExhibit"></div>
+      <%= form_tag :action => :do_nothing do %>
+
+      <%= label_tag :artwork_title, "Title:" %>
+      <%= text_field_tag :artwork_title %><br>
+      <%= label_tag :artist, "Artist:" %>
+      <%= text_field_tag :artist %><br>
+      <%= label_tag :date, "Date:" %>
+      <%= text_field_tag :date %><br>
+      <%= label_tag :artwork_style, "Style:" %>
+      <%= text_field_tag :artwork_style %><br>
+      <%= label_tag :medium, "Medium:" %>
+      <%= text_field_tag :medium %><br>
+      <%= label_tag :uuid, "UUID:" %>
+      <%= text_field_tag :uuid %><br>
+
+      <%= submit_tag 'Search'%>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div id="adminpage__initContainer">
+  <div id="adminpage__gotoArtwork">
+    <div class="icon-group">
+      <div class="icon">
+
+      </div>
+      <div class="title">Artwork</div>
+    </div>
+  </div>
+  <div id="adminpage__gotoEmployees">
+    <div class="icon-group">
+      <div class="icon">
+
+      </div>
+      <div class="title">Employees</div>
+    </div>
+  </div>
+  <div id="adminpage__gotoNonEmployees">
+    <div class="icon-group">
+      <div class="icon">
+
+      </div>
+      <div class="title">Non-Employees</div>
+    </div>
+  </div>
+  <div id="adminpage__gotoExhibits">
+    <div class="icon-group">
+      <div class="icon">
+
+      </div>
+      <div class="title">Exhibits</div>
+    </div>
+  </div>
+  <div id="adminpage__artwork">
+    <div class="table-title">
+      <div class="back-to-admin"></div>
+      Artwork</div>
+    <div class="table">
+      <%= form_tag :action => :do_nothing do %>
+
+      <%= label_tag :artwork_title, "Title:" %>
+      <%= text_field_tag :artwork_title %><br>
+      <%= label_tag :artist, "Artist:" %>
+      <%= text_field_tag :artist %><br>
+      <%= label_tag :date, "Date:" %>
+      <%= text_field_tag :date %><br>
+      <%= label_tag :artwork_style, "Style:" %>
+      <%= text_field_tag :artwork_style %><br>
+      <%= label_tag :medium, "Medium:" %>
+      <%= text_field_tag :medium %><br>
+      <%= label_tag :uuid, "UUID:" %>
+      <%= text_field_tag :uuid %><br>
+
+      <%= submit_tag 'Search'%>
+      <% end %>
+    </div>
+    <div id="add-art">+</div>
+    <div id="search-art"></div>
+  </div>
+  <div id="adminpage__employees">
+    <div class="table-title">
+      <div class="back-to-admin"></div>
+      Employees</div>
+    <div class="table">
+      <%= form_tag :action => :do_nothing do %>
+
+      <%= label_tag :employee_name, "Name:" %>
+      <%= text_field_tag :employee_name %><br>
+      <%= label_tag :position, "Position:" %>
+      <%= text_field_tag :position %><br>
+      <%= label_tag :salary, "Salary:" %>
+      <%= text_field_tag :salary %><br>
+      <%= label_tag :emp_id, "People ID:" %>
+      <%= text_field_tag :emp_id %><br>
+      <%= label_tag :birth_date, "Birth Date:" %>
+      <%= text_field_tag :birth_date %><br>
+      <%= label_tag :ssn, "SSN:" %>
+      <%= text_field_tag :ssn %><br>
+
+      <%= submit_tag 'Search'%>
+      <% end %>
+    </div>
+    <div id="add-emp">+</div>
+    <div id="search-employee"></div>
+  </div>
+  <div id="adminpage__nonemployees">
+    <div class="table-title">
+      <div class="back-to-admin"></div>
+      Non-Employees</div>
+    <div class="table">
+      <%= form_tag :action => :do_nothing do %>
+
+      <%= label_tag :non_emp_name, "Name:" %>
+      <%= text_field_tag :non_emp_name %><br>
+      <%= label_tag :non_emp_id, "People ID:" %>
+      <%= text_field_tag :non_emp_id %><br>
+      <%= label_tag :type, "Type:" %>
+      <%= select_tag(:type, options_for_select(["", "Member", "Donor", "Volunteer"])) %>
+      <%= label_tag :join_date, "Join Date:" %>
+      <%= text_field_tag :join_date %><br>
+      <%= label_tag :donor_amount, "Donor Amount:" %>
+      <%= text_field_tag :donor_amount %><br>
+
+      <%= submit_tag 'Search'%>
+      <% end %>
+    </div>
+    <div id="add-non-emp">+</div>
+    <div id="search-non-employee"></div>
+  </div>
+  <div id="adminpage__exhibits">
+    <div class="table-title">
+      <div class="back-to-admin"></div>
+      Exhibits</div>
+    <div class="table">
+      <%= form_tag :action => :do_nothing do %>
+
+      <%= label_tag :exhibit_title, "Title:" %>
+      <%= text_field_tag :exhibit_title %><br>
+      <%= label_tag :start_date, "Start Date:" %>
+      <%= text_field_tag :start_date %><br>
+      <%= label_tag :end_date, "End Date:" %>
+      <%= text_field_tag :end_date %><br>
+      <%= label_tag :main_image, "Main Image:" %>
+      <%= text_field_tag :main_image %><br>
+
+      <%= submit_tag 'Search', disabled: false%>
+      <% end %>
+    </div>
+    <div id="add-exhibit">+</div>
+    <div id="search-exhibits"></div>
+  </div>
+</div>

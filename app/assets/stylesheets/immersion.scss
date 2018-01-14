@@ -1,0 +1,271 @@
+// Place all the styles related to the Immersion controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  -ms-transition: $transition;
+}
+
+@mixin box_shadow($box_shadow) {
+  -moz-box-shadow: $box_shadow;
+  -webkit-box-shadow: $box_shadow;
+  box-shadow: $box_shadow;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Assistant:200,300,400,600,700,800');
+
+a {
+  text-decoration: none;
+}
+
+#logo {
+  position: relative;
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  left: 2.5%;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background: url("ImmersionLogo.svg")
+}
+
+#title {
+  position: absolute;
+  display: inline-block;
+  text-align: left;
+  font-family: 'Avenir Next', Arial;
+  font-weight: 300;
+  color: white;
+  font-size: 1.5em;
+  letter-spacing: 1pt;
+  left: calc(2.5% + 75px);
+  padding-left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#nav-bar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 3;
+  height: 100px;
+  width: 100%;
+  #nav-buttons {
+    top: 50%;
+    transform: translateY(-50%);
+    right: calc(95px);
+    text-align: center;
+    position: absolute;
+
+    .home__nav-links {
+      color: white;
+    }
+    a:hover {
+      color: #BBB;
+    }
+  }
+
+  #searchicon {
+    padding-left: 20px;
+  }
+}
+
+.nav-sep * {
+  fill: white;
+}
+
+.nav-links {
+  float: left;
+  display: inline-block;
+  font-family: Assistant, sans-serif;
+  font-weight: 300;
+  font-size: 14pt;
+  text-transform: uppercase;
+  margin: 0px 20px 0px 20px;
+  letter-spacing: 2px;
+  color: white;
+  @include transition(font-size 0.2s ease);
+
+  svg > * {
+    @include transition(all 0.2s ease);
+  }
+
+  &:visited {
+    color: white;
+  }
+}
+
+#mainContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+
+  #homeContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url("/assets/warhol_21.jpg") no-repeat bottom right;
+    background-size: cover;
+    z-index: 2;
+
+    #homeOverlay {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    #tagline {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      top: 45%;
+      font-family: 'Avenir Next', Arial;
+      font-weight: 600;
+      font-size: 6em;
+      color: white;
+      letter-spacing: 1pt;
+    }
+
+    #divein {
+      position: absolute;
+      width: 250px;
+      height: 55px;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 37%;
+      font-family: 'Avenir Next', Arial;
+      font-size: 18pt;
+      color: white;
+      text-align: center;
+      line-height: 60px;
+      letter-spacing: 1pt;
+      background-color: rgb(13, 130, 160);
+      cursor: pointer;
+
+      &:hover {
+        @include box_shadow(0px 0px 5px 5px rgba(255,255,255,0.5));
+      }
+    }
+
+    #exploretag {
+      position: absolute;
+      bottom: 3%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-family: 'Avenir Next', Arial;
+      font-weight: 100;
+      font-size: 18pt;
+      letter-spacing: 1px;
+    }
+
+    #arrow {
+      position: absolute;
+      bottom: 1.5%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+#collection__panel-single {
+  display: none;
+  z-index: 3;
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+  background: white;
+  top: 0px;
+  left: 0px;
+
+  #gotoGrid {
+    position: absolute;
+    top: -5%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 40px;
+    width: auto;
+    background-image: url("icons8-left-50.png");
+    background-size: 40px 40px;
+    background-position: left;
+    background-repeat: no-repeat;
+    padding-left: 45px;
+    color: rgb(89, 89, 104);
+    font-family: 'Avenir Next', sans-serif;
+    line-height: 40px;
+    cursor: default;
+  }
+
+  #central-image-container {
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    top: 0px;
+    transform: translateX(-50%);
+    height: 100%;
+    max-width: 75%;
+  }
+
+  #central-image {
+    display: none;
+    height: 95%;
+    max-width: 75%;
+    width: auto;
+    object-fit: scale-down;
+  }
+
+  #info-frame {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: auto;
+    height: auto;
+    border: 1px solid rgb(89, 89, 104);
+    padding: 8px;
+    max-width: 15vw;
+    margin-left: 50px;
+
+    div:not(:first-child) {
+      font-weight: 100;
+    }
+
+    div {
+      color: rgb(89, 89, 104);
+      width: 100%;
+      text-align: center;
+      font-family: 'Avenir Next', sans-serif;
+    }
+  }
+
+  #left-image {
+    position: absolute;
+    z-index: 3;
+    left: 2.5%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 50px;
+    width: 50px;
+    background-image: url("icons8-chevron-left-50.png")
+  }
+
+  #right-image {
+    position: absolute;
+    z-index: 3;
+    right: 2.5%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 50px;
+    width: 50px;
+    background-image: url("icons8-chevron-right-50.png")
+  }
+}

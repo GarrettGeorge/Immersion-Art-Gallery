@@ -1,0 +1,96 @@
+<% if is_logged_in? %>
+<%= render :partial => "shared/logoutheader" %>
+<% else %>
+  <%= render :partial => "shared/headerbar" %>
+<% end %>
+<div id="exhibitpage__initContainer">
+  <div id="description">
+    <div class="title">Description</div>
+    <div class="infobox">
+      <div class="text-container">
+        <span id="date"></span>
+        <div class="info-border"></div>
+        <span id="location"></span>
+      </div>
+      <div class="image"></div>
+    </div>
+    <div class="name"></div>
+  </div>
+  <div id="collection">
+    <div class="title">Collection</div>
+    <div class="infobox">
+      <div class="text-container">
+        <div id="painting-title"></div>
+        <div class="info-border"></div>
+        <div id="painting-date"></div>
+        <div class="info-border"></div>
+        <div id="painting-style"></div>
+        <div class="info-border"></div>
+        <div id="painting-genre"></div>
+      </div>
+      <div class="image"></div>
+    </div>
+    <div class="name"></div>
+  </div>
+</div>
+<div id="exhibitpage__descriptionContainer">
+  <div id="exhibitpage__descriptionContent">
+    <div class="nav-back">
+      <svg width="30" height="30">
+        <path d="M30 15 L 0 15 L 13 30 M0 15 L 13 0" fill="none" stroke="#AAA" stroke-width="1"/>
+      </svg>
+    </div>
+    <div id="description-content-title"></div>
+    <div id="description-text">
+
+    </div>
+  </div>
+</div>
+<div id="exhibitpage__collectionContainer">
+    <div class="nav-back">
+      <svg width="30" height="30">
+        <path d="M30 15 L 0 15 L 13 30 M0 15 L 13 0" fill="none" stroke="#AAA" stroke-width="1"/>
+      </svg>
+    </div>
+    <div id="collection__to-grid">
+      <svg width="30" height="30">
+      </svg>
+    </div>
+    <div id="collection__to-single">
+
+    </div>
+  <div id="collection__container">
+    <div id="collection__panel-grid">
+      <div id="collection__title">Collection</div>
+      <div id="collection__images">
+        <div class="image-col" id="image-col-0">
+
+        </div>
+        <div class="image-col" id="image-col-1">
+
+        </div>
+        <div class="image-col" id="image-col-2">
+
+        </div>
+        <div class="image-col" id="image-col-3">
+
+        </div>
+      </div>
+    </div>
+    <div id="collection__panel-single">
+      <div id="gotoGrid">Back to List</div>
+      <div id="left-image"></div>
+      <div id="central-image">
+
+      </div>
+      <div id="info-frame">
+        <div id="frame-title"></div>
+        <div id="artist"></div>
+        <div id="date"></div>
+        <div id="style"></div>
+        <div id="medium"></div>
+      </div>
+      <div id="right-image"></div>
+    </div>
+  </div>
+</div>
